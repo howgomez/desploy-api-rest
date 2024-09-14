@@ -1,6 +1,5 @@
 const express = require('express')
 const crypto = require('node:crypto')
-const port = 1234
 const movies = require('./movies.json')
 const cors = require('cors')
 const { validateMovie, validatePartialMovie } = require('./movies.js')
@@ -96,6 +95,8 @@ app.get('/movies/:id', (req, res) => {
 })
 
 // Escuchar el puerto.
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`)
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`)
 })
